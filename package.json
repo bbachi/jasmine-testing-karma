@@ -1,0 +1,24 @@
+{
+  "name": "jasmine-testing-karma",
+  "version": "1.0.0",
+  "description": "jasmine testing with karma",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "keywords": [
+    "karma",
+    "test",
+    "jasmine"
+  ],
+  "author": "Bhargav Bachina",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-core": "^3.2.1",
+    "karma": "^3.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.2",
+    "karma-jasmine-html-reporter": "^1.3.1",
+    "karma-spec-reporter": "0.0.32"
+  }
+}
