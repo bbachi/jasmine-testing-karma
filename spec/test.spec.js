@@ -1,61 +1,64 @@
-var Calculator = function() {}
+var Name = function() {}
 
-Calculator.prototype.add = function(a,b) {
-    return a+b;
+Name.prototype.setName = function(name) {
+    this.name = name;
 }
 
-Calculator.prototype.subtract = function(a,b) {
-    return a-b;
+Name.prototype.getName = function() {
+    return this.name;
 }
 
-Calculator.prototype.multiply = function(a,b) {
-    return a*b;
+Name.prototype.toUppCase = function() {
+    return this.name.toUpperCase();
 }
 
-describe("Calculator", function() {
-    var calculator;
-    
-    beforeAll(function(){
-        console.log("runs only once before everything.")
-    })
+Name.prototype.toLowCase = function() {
+    return this.name.toLowerCase();
+}
 
-    afterAll(function(){
-        console.log("runs only once after everything.")
-    })
+Name.prototype.getFirstName = function() {
+    return this.name.split(' ')[0];
+}
+
+Name.prototype.getLastName = function() {
+    return this.name.split(' ')[1];
+}
+
+describe('Name', function(){
+    var name;
 
     beforeEach(function(){
-        console.log("running before each spec!!!!")
-        calculator = new Calculator();
+        name = new Name();
+        name.setName("First Last")
     })
 
-    afterEach(function(){
-        console.log("running after each spec!!!!")
+    it('Should display full name', function(){
+        var result = name.getName();
+
+        expect(result).toBe("First Last");
     })
 
-    it("should add two numbers", function() {
-         
-         console.log("adding two numbers spec!!")
+    it('Should display name in uppercase', function(){
+        var result = name.toUppCase();
 
-         var result = calculator.add(2,4);
-
-         expect(result).toBe(6);
+        expect(result).toBe("FIRST LAST");
     })
 
-    it("should subtract two numbers", function() {
+    it('Should display name in lowercase', function(){
+        var result = name.toLowCase();
 
-        console.log("subtracting two numbers spec!!")
-
-        var result = calculator.subtract(4,2);
-
-        expect(result).toBe(2);
+        expect(result).toBe("first la");
     })
 
-    it("should multiply two numbers", function() {
+    it('Should display only first name', function(){
+        var result = name.getFirstName();
 
-        console.log("multiplying two numbers spec!!")
-
-        var result = calculator.multiply(4,2);
-
-        expect(result).toBe(8);
+        expect(result).toBe("First");
     })
-});
+
+    it('Should display only last name', function(){
+        var result = name.getLastName();
+
+        expect(result).toBe("Last");
+    })
+})
